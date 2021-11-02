@@ -1,0 +1,8 @@
+cypress-cucumber
+End-to-End Automation Test Framework with BDD
+
+Installation
+Clone the directory and run
+
+npm install
+npm run test
