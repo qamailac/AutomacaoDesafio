@@ -19,6 +19,7 @@ Given("I am on the product page", () => {
     functions.searchbutton_click();
     functions.pdp_access();
     functions.infomessage_close();
+    functions.pdp_check();
 })
 
 When("I type a valid zipcode", () => {
@@ -75,4 +76,42 @@ When("I clean the cart", () => {
 Then("I see an empty cart", () => {
     functions.emptycart_check();
 
+})
+
+
+//============================//
+
+// Desktop_Order
+// Scenario: Order process for boleto option
+
+
+Given("I am on the store website", () => {
+    functions.url_access();
+    functions.cookiemessage_close();
+        
+})
+
+When("I add some products to the cart", () => {
+    functions.word_type();
+    functions.searchbutton_click();
+    functions.pdp_access();
+    functions.infomessage_close();
+    functions.validzipcode_type();
+    functions.freight_calculate();
+    functions.addproduct();
+    functions.cart1prod_check();
+    functions.versacola_access();
+})
+
+When("I click on the boleto option", () => {
+    functions.checkout_access();
+    functions.email_type();
+    functions.registeredemail_access();
+
+
+})
+
+Then("I see the selected option", () => {
+    
+    functions.freight_check();
 })

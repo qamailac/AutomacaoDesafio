@@ -10,15 +10,26 @@ const elements = new Elements()
 const url = Cypress.config("baseUrl")
 // cria constante que recebe a url informada no arquivo cypress.json
 
+const zipcode = '02535000'
+// cria constante a ser usada no arquivo
+
+const word1 = 'copo'
+// cria constante a ser usada no arquivo
+
+const word2 = 'giz'
+// cria constante a ser usada no arquivo
+
+const email = 'lilian.naomi@acct.global'
+
 //============================//
 
 class Functions {
-    // Home
+    //========== Home =============
    
     url_access() {
         // funcao acessar url
         cy.visit(url)
-        cy.wait(20000)
+    
     }
 
     cookiemessage_close() {
@@ -28,15 +39,14 @@ class Functions {
 
     word_type() {
         // funcao informar palavra de busca
-        cy.get(elements.searchField()).type('copo')
+        cy.get(elements.searchField()).type(word1)
         cy.wait(10000)
     }
 
     word_type2() {
         // funcao informar palavra de busca 2
         cy.wait(10000)
-       // cy.get(elements.searchField()).click()
-        cy.get(elements.searchField()).type('giz')
+        cy.get(elements.searchField()).type(word2)
         cy.wait(10000)
     }
 
@@ -45,7 +55,7 @@ class Functions {
         cy.get(elements.searchButton()).click()
     }
 
-    // Resultado da busca
+    //=========== Resultado da busca ==============
 
     resultspage_check() {
         // funcao validar pagina de resultados
@@ -56,7 +66,7 @@ class Functions {
         cy.get(elements.productPicture()).should('be.visible')
     }
 
-    // PDP
+    //=========== PDP ==============
 
     pdp_access() {
         //funcao clicar no botao de busca
@@ -74,19 +84,18 @@ class Functions {
 
     pdp_check() {
         // funcao validar pdp
-        cy.wait(30000)
+        cy.wait(15000)
         cy.get(elements.imageProduct()).should('be.visible')
         cy.get(elements.nameProduct()).should('be.visible')
         cy.get(elements.descriptionProduct()).should('be.visible')
-        cy.get(elements.colorProduct()).should('be.visible')
-        cy.get(elements.productPrice()).should('be.visible')
+        cy.get(elements.priceProduct()).should('be.visible')
         cy.get(elements.cepProduct()).should('be.visible')
         cy.get(elements.addbuttonBasket()).should('be.visible')
     }
 
     validzipcode_type() {
         // funcao calcular frete na pdp
-        cy.get(elements.cepProduct()).type('02535000')
+        cy.get(elements.cepProduct()).type(zipcode)
     
     }
 
@@ -98,7 +107,7 @@ class Functions {
 
     freight_check() {
         // funcao validar calculo frete
-        cy.wait(50000)
+        cy.wait(20000)
         cy.get(elements.calculatedFreight1()).should('be.visible')
         cy.get(elements.calculatedFreight2()).should('be.visible')
         cy.get(elements.calculatedFreight3()).should('be.visible')
@@ -118,7 +127,7 @@ class Functions {
 
     }
 
-    // Cart
+    //============== Cart =================
 
     cart1prod_check() {
         // funcao validar carrinho com 1 produto
@@ -149,9 +158,9 @@ class Functions {
     emptycart_check() {
         // funcao validar carrinho vazio
         cy.wait(5000)
-        cy.get(elements.emptyCart1()).should('be.visible')
-        cy.get(elements.emptyCart2()).should('be.visible')
-        cy.get(elements.emptyCart3()).should('be.visible')
+        cy.get(elements.sentenceemptyCart1()).should('be.visible')
+        cy.get(elements.iconemptyCart2()).should('be.visible')
+        cy.get(elements.sentenceemptyCart3()).should('be.visible')
 
     }
    
@@ -166,6 +175,47 @@ class Functions {
         // funcao fechar carrinho
         cy.get(elements.closeCart()).click()
     }    
+
+
+    versacola_access() {
+        // funcao ver sacola 
+        cy.get(elements.versacolaButton()).click()
+        cy.wait(5000)
+    }    
+
+    //=========== Sacola =================
+
+    checkout_access() {
+        // funcao ir para o pagamento
+        cy.get(elements.continueButton()).click()
+        cy.wait(5000)
+    }
+
+
+    checkout_access() {
+        // funcao ir para pagamento ??????
+        cy.get(elements.closeCart()).click()
+    }
+
+    email_type() {
+        // funcao informar email registrado
+        cy.get(elements.emailField()).type(email)
+        cy.get(elements.continueemailButton()).click()
+            
+    }
+
+    registeredemail_access() {
+        // funcao fechar mensagem de email registrado
+        cy.get(elements.registeredemailMessage()).click()
+    }
+
+    editpayment_access() {
+        // funcao editar pagamento
+
+
+    }
+
+
 
 }
 
