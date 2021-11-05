@@ -23,15 +23,15 @@ class Functions {
         cy.get(elements.cookieMessage()).click()
     }
 
-    word_type() {
+    word_type(wr) {
         // funcao informar palavra de busca
-        cy.get(elements.searchField()).type('copo')
+        cy.get(elements.searchField()).type(wr)
         cy.wait(5000)
     }
 
-    word_type2() {
+    word_type2(wor) {
         // funcao informar palavra de busca 2
-        cy.get(elements.searchField()).type('giz')
+        cy.get(elements.searchField()).type(wor)
         cy.wait(5000)
     }
 
@@ -75,9 +75,9 @@ class Functions {
         cy.get(elements.addbuttonBasket()).should('be.visible')
     }
 
-    validzipcode_type() {
+    validzipcode_type(zp) {
         // funcao calcular frete na pdp
-        cy.get(elements.cepProduct()).type('02535000');
+        cy.get(elements.cepProduct()).type(zp);
         cy.wait(5000)
             
     }
@@ -169,9 +169,9 @@ class Functions {
     }
 
 
-    email_type() {
+    email_type(em) {
         // funcao informar email registrado
-        cy.get(elements.emailField()).type('lilian.naomi@acct.global')
+        cy.get(elements.emailField()).type(em)
         cy.get(elements.continueemailButton()).click()
             
     }
