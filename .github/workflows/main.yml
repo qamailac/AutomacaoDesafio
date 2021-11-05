@@ -12,7 +12,7 @@ jobs:
         with:
           record: true
           start: npm run serve
-          working-directory: frontend
+          working-directory: AutomacaoDesafio
         env:
           # pass the Dashboard record key as an environment variable
           CYPRESS_RECORD_KEY: b4ed260d-b619-4763-8bbf-1de51c80c46f
