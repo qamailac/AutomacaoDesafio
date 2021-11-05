@@ -1,4 +1,4 @@
-name: integration-tests
+name: automacao-desafio
 on: [push]
 jobs:
   cypress-run:
