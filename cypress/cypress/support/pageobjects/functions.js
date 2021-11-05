@@ -10,21 +10,8 @@ const elements = new Elements()
 const url = Cypress.config("baseUrl")
 // cria constante que recebe a url informada no arquivo cypress.json
 
-const zipcode = '02535000'
-// cria constante a ser usada no arquivo
-
-const word1 = 'copo'
-// cria constante a ser usada no arquivo
-
-const word2 = 'giz'
-// cria constante a ser usada no arquivo
-
-const email = 'lilian.naomi@acct.global'
-
-//============================//
-
 class Functions {
-    //========== Home =============
+    //=== Home ===
    
     url_access() {
         // funcao acessar url
@@ -39,15 +26,15 @@ class Functions {
 
     word_type() {
         // funcao informar palavra de busca
-        cy.get(elements.searchField()).type(word1)
-        cy.wait(10000)
+        cy.get(elements.searchField()).type('copo')
+        cy.wait(5000)
     }
 
     word_type2() {
         // funcao informar palavra de busca 2
-        cy.wait(10000)
-        cy.get(elements.searchField()).type(word2)
-        cy.wait(10000)
+        //cy.wait(10000)
+        cy.get(elements.searchField()).type('giz')
+        cy.wait(5000)
     }
 
     searchbutton_click() {
@@ -55,23 +42,23 @@ class Functions {
         cy.get(elements.searchButton()).click()
     }
 
-    //=========== Resultado da busca ==============
+    //=== Resultado da busca ===
 
     resultspage_check() {
         // funcao validar pagina de resultados
-        cy.wait(15000)
+        //cy.wait(10000)
         cy.get(elements.wordSearched()).should('be.visible')
         cy.get(elements.quantityResult()).should('be.visible')
         cy.get(elements.orderingOptions()).should('be.visible')
         cy.get(elements.productPicture()).should('be.visible')
     }
 
-    //=========== PDP ==============
+    //=== PDP ===
 
     pdp_access() {
         //funcao clicar no botao de busca
         cy.get(elements.productPicture()).click()
-        cy.wait(10000)
+        cy.wait(5000)
 
     }
      
@@ -84,7 +71,7 @@ class Functions {
 
     pdp_check() {
         // funcao validar pdp
-        cy.wait(15000)
+        //cy.wait(15000)
         cy.get(elements.imageProduct()).should('be.visible')
         cy.get(elements.nameProduct()).should('be.visible')
         cy.get(elements.descriptionProduct()).should('be.visible')
@@ -95,8 +82,9 @@ class Functions {
 
     validzipcode_type() {
         // funcao calcular frete na pdp
-        cy.get(elements.cepProduct()).type(zipcode)
-    
+        cy.get(elements.cepProduct()).type('02535000');
+        cy.wait(5000)
+            
     }
 
     freight_calculate() {
@@ -107,7 +95,7 @@ class Functions {
 
     freight_check() {
         // funcao validar calculo frete
-        cy.wait(20000)
+        //cy.wait(20000)
         cy.get(elements.calculatedFreight1()).should('be.visible')
         cy.get(elements.calculatedFreight2()).should('be.visible')
         cy.get(elements.calculatedFreight3()).should('be.visible')
@@ -127,11 +115,11 @@ class Functions {
 
     }
 
-    //============== Cart =================
+    //=== Cart ===
 
     cart1prod_check() {
         // funcao validar carrinho com 1 produto
-        cy.wait(5000)
+        //cy.wait(5000)
         cy.get(elements.titleCart()).should('be.visible')
         cy.get(elements.product1Added()).should('be.visible')
         cy.get(elements.totalCart()).should('be.visible')
@@ -140,7 +128,7 @@ class Functions {
     
     cart2prod_check() {
         // funcao validar carrinho com 2 produtos
-        cy.wait(5000)
+        //cy.wait(5000)
         cy.get(elements.titleCart()).should('be.visible')
         cy.get(elements.product2Added()).should('be.visible')
         cy.get(elements.totalCart()).should('be.visible')
@@ -157,7 +145,7 @@ class Functions {
 
     emptycart_check() {
         // funcao validar carrinho vazio
-        cy.wait(5000)
+        //cy.wait(5000)
         cy.get(elements.sentenceemptyCart1()).should('be.visible')
         cy.get(elements.iconemptyCart2()).should('be.visible')
         cy.get(elements.sentenceemptyCart3()).should('be.visible')
@@ -183,38 +171,43 @@ class Functions {
         cy.wait(5000)
     }    
 
-    //=========== Sacola =================
+    //=== Sacola ===
 
     checkout_access() {
-        // funcao ir para o pagamento
-        cy.get(elements.continueButton()).click()
+        // funcao ir para tela de pagamento
+        cy.get(elements.continuetocheckoutButton()).click()
         cy.wait(5000)
     }
 
 
-    checkout_access() {
-        // funcao ir para pagamento ??????
-        cy.get(elements.closeCart()).click()
-    }
-
     email_type() {
         // funcao informar email registrado
-        cy.get(elements.emailField()).type(email)
+        cy.get(elements.emailField()).type('lilian.naomi@acct.global')
         cy.get(elements.continueemailButton()).click()
             
     }
 
-    registeredemail_access() {
+    registeredemailpopup_close() {
         // funcao fechar mensagem de email registrado
         cy.get(elements.registeredemailMessage()).click()
     }
 
-    editpayment_access() {
-        // funcao editar pagamento
+    ordercontinue_click() {
+        // funcao continuar para o pagamento
+        cy.get(elements.gotopaymentButton()).click()
+    }
 
+
+    payment_select() {
+        // funcao selecionar boleto
+        cy.get(elements.boletoOption()).click()
 
     }
 
+    payment_check() {
+        // funcao verificar opcao selecionada
+        cy.get(elements.boletoDescription()).should('be.visible')
+    }
 
 
 }

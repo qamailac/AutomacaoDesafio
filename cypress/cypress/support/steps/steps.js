@@ -7,10 +7,10 @@ import Functions from '../pageobjects/functions'
 const functions = new Functions
 // cria constante a ser usada no arquivo
 
-//============================//
-
+//
 // Desktop_PDP
 // Scenario: PDP Freight Calculation
+//
 
 Given("I am on the product page", () => {
     functions.url_access();
@@ -35,10 +35,10 @@ Then("I see the freight value", () => {
     functions.freight_check();
 })
 
-//============================//
-
+//
 // Desktop_Cart
 // Scenario: Adding 2 products to the cart and cleaning the cart
+//
 
 Given("I am on the store website", () => {
     functions.url_access();
@@ -75,15 +75,13 @@ When("I clean the cart", () => {
 
 Then("I see an empty cart", () => {
     functions.emptycart_check();
-
 })
 
 
-//============================//
-
+//
 // Desktop_Order
 // Scenario: Order process for boleto option
-
+//
 
 Given("I am on the store website", () => {
     functions.url_access();
@@ -101,17 +99,19 @@ When("I add some products to the cart", () => {
     functions.addproduct();
     functions.cart1prod_check();
     functions.versacola_access();
+    functions.checkout_access();
+    functions.email_type();
+    functions.registeredemailpopup_close();
+    functions.ordercontinue_click();
+        
 })
 
 When("I click on the boleto option", () => {
-    functions.checkout_access();
-    functions.email_type();
-    functions.registeredemail_access();
-
+    functions.payment_select();
 
 })
 
 Then("I see the selected option", () => {
     
-    functions.freight_check();
+    functions.payment_check();
 })

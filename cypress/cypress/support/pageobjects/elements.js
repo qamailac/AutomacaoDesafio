@@ -55,11 +55,13 @@ class Elements {
 
     //=============== Sacola ==============
 
-    continueButton = () => { return '#cart-to-orderform' }
+    continuetocheckoutButton = () => { return '#cart-to-orderform' }
     emailField = () => { return '#client-pre-email' }
     continueemailButton = () => { return '#btn-client-pre-email' }
     registeredemailMessage = () => { return '#btn-identified-user-button' }
-    editpaymentButton = () => {return '.payment-edit-link > .link-box-edit'}
+    gotopaymentButton = () => { return '#btn-go-to-payment' }
+    boletoOption = () => { return '#payment-group-bankInvoicePaymentGroup' }
+    boletoDescription = () => {return '[style="display: block;"] > div > .box-payment-group2 > .payment-description'}
 
 }
 
