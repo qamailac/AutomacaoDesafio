@@ -2,8 +2,8 @@
     "projectId": "2ibype",
     "viewportWidth": 1366,
     "viewportHeight": 768,
-    "defaultCommandTimeout": 30000,
-    "pageLoadTimeout": 50000,
+    "defaultCommandTimeout": 100000,
+    "pageLoadTimeout": 100000,
     "baseUrl": "https://www.lebiscuit.com.br/"
 }
   
