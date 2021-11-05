@@ -1,14 +1,14 @@
 /// <reference types="Cypress" />
 
 class Elements {
-    //============ Home ============
+    //=== Home ===
     
     loginButton = () => { return 'div.relative > .vtex-button > .vtex-button__label' }
     searchField = () => { return '#downshift-0-input'}
     searchButton = () => { return '.vtex-store-components-3-x-searchIcon' }
     cookieMessage = () => { return '.lebiscuit-le-component-0-x-modalcookie__message > .vtex-button > .vtex-button__label' }
 
-    //============ Result page =============
+    //=== Result page ===
 
     wordSearched = () => {return '.vtex-search-result-3-x-galleryTitle--layout'}
     quantityResult = () => { return '.vtex-search-result-3-x-totalProducts--layout > :nth-child(1)'}
@@ -16,7 +16,7 @@ class Elements {
     productPicture = () => { return '#gallery-layout-container > :nth-child(1)'}
 
 
-    //============ Product page =============
+    //=== Product page ===
 
     imageProduct = () => { return '.vtex-store-components-3-x-productImageTag' }
     nameProduct = () => { return '.vtex-store-components-3-x-productBrand' }
@@ -38,7 +38,7 @@ class Elements {
     calculatedFreight9 = () => { return ':nth-child(3) > .vtex-store-components-3-x-shippingTableCellDeliveryPrice' }
     infoMessage = () => { return '._hj-102w7__styles__openStateToggleIcon' }
 
-    //============ Cart =============
+    //=== Cart ===
    
     titleCart = () => { return '.vtex-minicart-2-x-minicartTitle' }
     product1Added = () => { return '.vtex-minicart-2-x-minicartProductListContainer > :nth-child(1) > :nth-child(1) > .pt5' }
@@ -53,7 +53,7 @@ class Elements {
     accessCart = () => {return '.vtex-minicart-2-x-minicartIconContainer'}
     closeCart = () => {return '.vtex-minicart-2-x-closeIconButton'}
 
-    //=============== Sacola ==============
+    //=== Sacola ===
 
     continuetocheckoutButton = () => { return '#cart-to-orderform' }
     emailField = () => { return '#client-pre-email' }
@@ -62,7 +62,7 @@ class Elements {
     gotopaymentButton = () => { return '#btn-go-to-payment' }
     boletoOption = () => { return '#payment-group-bankInvoicePaymentGroup' }
     boletoDescription = () => {return '[style="display: block;"] > div > .box-payment-group2 > .payment-description'}
-
+    completeoderderButton = () => {return ' #pay-finish' }
 }
 
 export default Elements;

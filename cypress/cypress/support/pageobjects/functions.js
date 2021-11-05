@@ -16,7 +16,6 @@ class Functions {
     url_access() {
         // funcao acessar url
         cy.visit(url)
-    
     }
 
     cookiemessage_close() {
@@ -32,7 +31,6 @@ class Functions {
 
     word_type2() {
         // funcao informar palavra de busca 2
-        //cy.wait(10000)
         cy.get(elements.searchField()).type('giz')
         cy.wait(5000)
     }
@@ -46,7 +44,6 @@ class Functions {
 
     resultspage_check() {
         // funcao validar pagina de resultados
-        //cy.wait(10000)
         cy.get(elements.wordSearched()).should('be.visible')
         cy.get(elements.quantityResult()).should('be.visible')
         cy.get(elements.orderingOptions()).should('be.visible')
@@ -59,7 +56,6 @@ class Functions {
         //funcao clicar no botao de busca
         cy.get(elements.productPicture()).click()
         cy.wait(5000)
-
     }
      
     
@@ -71,7 +67,6 @@ class Functions {
 
     pdp_check() {
         // funcao validar pdp
-        //cy.wait(15000)
         cy.get(elements.imageProduct()).should('be.visible')
         cy.get(elements.nameProduct()).should('be.visible')
         cy.get(elements.descriptionProduct()).should('be.visible')
@@ -95,7 +90,6 @@ class Functions {
 
     freight_check() {
         // funcao validar calculo frete
-        //cy.wait(20000)
         cy.get(elements.calculatedFreight1()).should('be.visible')
         cy.get(elements.calculatedFreight2()).should('be.visible')
         cy.get(elements.calculatedFreight3()).should('be.visible')
@@ -105,7 +99,6 @@ class Functions {
         cy.get(elements.calculatedFreight7()).should('be.visible')
         cy.get(elements.calculatedFreight8()).should('be.visible')
         cy.get(elements.calculatedFreight9()).should('be.visible')
-
     } 
 
     addproduct() {
@@ -119,7 +112,6 @@ class Functions {
 
     cart1prod_check() {
         // funcao validar carrinho com 1 produto
-        //cy.wait(5000)
         cy.get(elements.titleCart()).should('be.visible')
         cy.get(elements.product1Added()).should('be.visible')
         cy.get(elements.totalCart()).should('be.visible')
@@ -128,7 +120,6 @@ class Functions {
     
     cart2prod_check() {
         // funcao validar carrinho com 2 produtos
-        //cy.wait(5000)
         cy.get(elements.titleCart()).should('be.visible')
         cy.get(elements.product2Added()).should('be.visible')
         cy.get(elements.totalCart()).should('be.visible')
@@ -140,12 +131,10 @@ class Functions {
         cy.get(elements.removeProd2()).click()
         cy.get(elements.removeProd1()).click()
         cy.wait(5000)
-
     }
 
     emptycart_check() {
         // funcao validar carrinho vazio
-        //cy.wait(5000)
         cy.get(elements.sentenceemptyCart1()).should('be.visible')
         cy.get(elements.iconemptyCart2()).should('be.visible')
         cy.get(elements.sentenceemptyCart3()).should('be.visible')
@@ -205,8 +194,10 @@ class Functions {
     }
 
     payment_check() {
-        // funcao verificar opcao selecionada
+        // funcao validar opcao selecionada
         cy.get(elements.boletoDescription()).should('be.visible')
+        cy.get(elements.completeoderderButton()).should('be.visible')
+
     }
 
 
